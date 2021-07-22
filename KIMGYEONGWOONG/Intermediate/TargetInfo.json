@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "KIMGYEONGWOONG",
+			"Path": "C:\\Github\\KIMGYEONGWOONG\\KIMGYEONGWOONG\\Source\\KIMGYEONGWOONG.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "KIMGYEONGWOONGEditor",
+			"Path": "C:\\Github\\KIMGYEONGWOONG\\KIMGYEONGWOONG\\Source\\KIMGYEONGWOONGEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
