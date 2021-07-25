@@ -51,7 +51,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{23716D0C-2A81-4811-B842-F402A97F334E}</ProjectGuid>
+    <ProjectGuid>{16ADDEAB-6C31-41EB-9B78-2240E7FCF252}</ProjectGuid>
     <Keyword>MakeFileProj</Keyword>
     <RootNamespace>KIMGYEONGWOONG</RootNamespace>
     <PlatformToolset>v142</PlatformToolset>
