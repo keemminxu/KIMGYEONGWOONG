@@ -12,7 +12,7 @@ UPlayerMove::UPlayerMove()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
-	bWantsInitializeComponent = true;
+
 
 	// ...
 }
@@ -23,26 +23,15 @@ void UPlayerMove::BeginPlay()
 {
 	Super::BeginPlay();
 
+	
+
 
 
 	// ...
 	
 }
 
-void UPlayerMove::InitializeComponent()
-{
-	Super::InitializeComponent();
 
-	me = Cast<AKIMGYEONGWOONGPlayer>(GetOwner());
-	if (me)
-	{
-		//델리게이트에 내 함수를 등록하고 싶다.
-
-		me->OnInputDelegate.AddUObject(this, &UPlayerMove::SetupPlayerInputComponent);
-		me->bUseControllerRotationPitch = true;
-
-	}
-}
 
 
 // Called every frame
@@ -53,38 +42,8 @@ void UPlayerMove::TickComponent(float DeltaTime, ELevelTick TickType, FActorComp
 	// ...
 }
 
-void UPlayerMove::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &UPlayerMove::Vertical);
-	PlayerInputComponent->BindAxis(TEXT("MoveRight"), this, &UPlayerMove::Horizontal);
-	PlayerInputComponent->BindAxis(TEXT("Turn"), this, &UPlayerMove::Turn);
-	PlayerInputComponent->BindAxis(TEXT("LookUp"), this, &UPlayerMove::LookUp);
-	
 
-}
 
-void UPlayerMove::Horizontal(float value)
-{
-	FVector dir = me->GetControlRotation().Quaternion().GetRightVector();
-
-	me->AddMovementInput(dir, value);
-}
-
-void UPlayerMove::Vertical(float value)
-{
-	FVector dir = me->GetControlRotation().Quaternion().GetForwardVector();
-	me->AddMovementInput(dir, value);
-}
-
-void UPlayerMove::Turn(float value)
-{
-	me->AddControllerYawInput(value);
-}
-
-void UPlayerMove::LookUp(float value)
-{
-	me->AddControllerPitchInput(value);
-}
 
 
 

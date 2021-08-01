@@ -6,8 +6,6 @@
 #include "GameFramework/Character.h"
 #include "KIMGYEONGWOONGPlayer.generated.h"
 
-DECLARE_MULTICAST_DELEGATE_OneParam(FPlayerInputDelegate, class UInputComponent*);
-
 
 
 UCLASS()
@@ -28,23 +26,8 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
-public:
-	UPROPERTY(VisibleAnywhere, Category = "FPSCamera")   
-		class UCameraComponent* fpsCamera;
-
-public:
-	UPROPERTY(VisibleAnywhere, Category = BodyMesh)
-		class USkeletalMeshComponent* bodyMesh;
-
-public:
-
-	UPROPERTY(VisibleAnywhere, Category = PlayerMove)
-		class UPlayerMove* playerMove;
 
 
-	FPlayerInputDelegate OnInputDelegate;
 
-
+	
 };

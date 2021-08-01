@@ -20,27 +20,19 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-	virtual void InitializeComponent() override;
+
 
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent);
-
-
-	void Horizontal(float value);
-	void Vertical(float value);
-
-	void Turn(float value);
-	void LookUp(float value);
 
 
 
 
-public:
-	UPROPERTY()
-		class AKIMGYEONGWOONGPlayer* me;
+
+
+
 
 
 };
