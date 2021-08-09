@@ -42,7 +42,7 @@ UPlayerFSM::UPlayerFSM()
 void UPlayerFSM::BeginPlay()
 {
 	Super::BeginPlay();
-	anim = Cast<UPlayerAnimInstance>(me->GetMesh()->GetAnimInstance());
+	//anim = Cast<UPlayerAnimInstance>(me->GetMesh()->GetAnimInstance());
 }
 
 
