@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "GameFramework/SpringArmComponent.h"
+#include "Camera/CameraComponent.h"
 #include "KIMGYEONGWOONGPlayer.generated.h"
 
 //
@@ -31,20 +33,23 @@ public:
 	// Called to bind functionality to input
 
 public:
-	UPROPERTY(EditAnywhere, Category = BodyMesh)
-		class USkeletalMeshComponent* bodyMesh;
+	//UPROPERTY(EditAnywhere, Category = BodyMesh)
+	//	class USkeletalMeshComponent* bodyMesh;
 
-	//UPROPERTY(EditAnywhere, Category = ChildActor)
-	//	class FName* righthandSocket;
+	UPROPERTY(EditAnywhere, Category=SpringArm)
+		class USpringArmComponent* springArm;
+
+	UPROPERTY(EditAnywhere, Category=Camera)
+		class UCameraComponent* camera;
 	
-	UPROPERTY(EditAnywhere, Category=ChildActor)
-		class UChildActorComponent* childActor;
+	//UPROPERTY(EditAnywhere, Category=ChildActor)
+	//	class UChildActorComponent* childActor;
 
-	UPROPERTY(EditAnywhere, Category=Sword)
-		class USkeletalMeshComponent* sword;
+	//UPROPERTY(EditAnywhere, Category=Sword)
+	//	class USkeletalMeshComponent* sword;
 
-	UPROPERTY(EditAnywhere, Category=Collision)
-		class UBoxComponent* swordCollision;
+	//UPROPERTY(EditAnywhere, Category=Collision)
+	//	class UBoxComponent* swordCollision;
 
 	UPROPERTY(VisibleAnywhere, Category=PlayerMove)
 		class UPlayerMove* playerMove;
@@ -66,9 +71,12 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerBehavior)
 		bool isAvoiding = false;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerBehavior)
+		bool isDamaging = false;
 
 	void ShiftPressed();
 	void ShiftReleased();
+	void UsePotion();
 
 	// HP, MP, Toxicity
 	UPROPERTY(EditAnywhere, Category = Stats)

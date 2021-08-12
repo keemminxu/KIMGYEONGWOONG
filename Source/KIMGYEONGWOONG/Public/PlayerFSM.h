@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "PlayerAnimInstance.h"
 #include "PlayerFSM.generated.h"
 
 // 사용할 상태 정의
@@ -32,7 +31,6 @@ public:
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
-	virtual void InitializeComponent() override;
 
 public:	
 	// Called every frame
@@ -45,9 +43,8 @@ public:
 	UPROPERTY(EditAnywhere, Category=FSM, BlueprintReadWrite)
 	EPlayerState m_state;
 
-
 	UPROPERTY(EditAnywhere, Category = FSM, BlueprintReadWrite)
-		float playerVelocity = 0;
+		float playerVelocity;
 
 	UPROPERTY(EditAnywhere, Category = FSM, BlueprintReadWrite)
 		bool isShiftPressed = false;
@@ -61,6 +58,24 @@ public:
 	UPROPERTY()
 		class UPlayerAnimInstance* anim;
 
+	UPROPERTY(EditAnywhere, Category = KNOCKBACK)
+		float knockback = 500;
+
+	UPROPERTY()
+		FVector knockbackPos;
+
+	UPROPERTY(EditAnywhere, Category = KNOCKBACK)
+		float knockbackSpeed = 20;
+
+	UPROPERTY(EditAnywhere, Category = KNOCKBACK)
+		float knockbackRange = 20;
+
+	UPROPERTY()
+		float currentTime = 0;
+
+	UPROPERTY(EditAnywhere, Category = FSM)
+		float delayTime = 10.0f;
+
 	void IdleState();
 	void MoveState();
 	void AttackState();
@@ -70,5 +85,6 @@ public:
 	void DieState();
 
 	// 피격시 처리
-	void OnDamageProcess();
+	UFUNCTION(BlueprintCallable, Category=DamageFunction)
+	void OnDamageProcess(FVector damagedDirection);
 };

@@ -35,7 +35,7 @@ void UPlayerMove::InitializeComponent()
 	{
 		//me->OnInputDelegate.AddUObject(this, &UPlayerMove::SetupPlayerInputComponent);
 
-		me->bUseControllerRotationPitch = true;
+		//me->bUseControllerRotationPitch = true;
 		me->GetCharacterMovement()->bOrientRotationToMovement =true;
 		me->GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f); // ...at this rotation rate
 		me->GetCharacterMovement()->JumpZVelocity = 600.f;
@@ -61,7 +61,6 @@ void UPlayerMove::SetupPlayerInputComponent(class UInputComponent* PlayerInputCo
 	PlayerInputComponent->BindAxis(TEXT("MoveRight"), this, &UPlayerMove::Horizontal);
 	PlayerInputComponent->BindAxis(TEXT("Turn"), this, &UPlayerMove::Turn);
 	PlayerInputComponent->BindAxis(TEXT("LookUp"), this, &UPlayerMove::LookUp);
-	PlayerInputComponent->BindAction(TEXT("Roll"), IE_Pressed, this, &UPlayerMove::Roll);
 	PlayerInputComponent->BindAction(TEXT("UsePotion"), IE_Pressed, this, &UPlayerMove::UsePotion);
 	PlayerInputComponent->BindAction(TEXT("Skill"), IE_Pressed, this, &UPlayerMove::Skill);
 }
@@ -77,7 +76,6 @@ void UPlayerMove::Horizontal(float value)
 	}
 
 	FVector dir = me->GetControlRotation().Quaternion().GetRightVector();
-
 	me->AddMovementInput(dir, value);
 }
 
@@ -91,6 +89,7 @@ void UPlayerMove::Vertical(float value)
 	else {
 		me->GetCharacterMovement()->MaxWalkSpeed = initialWalkSpeed;
 	}
+	
 	me->AddMovementInput(dir, value);
 }
 
@@ -104,15 +103,9 @@ void UPlayerMove::LookUp(float value)
 	me->AddControllerPitchInput(value);
 }
 
-void UPlayerMove::Roll()
-{
-	// 공격중이지 않을 때 Roll
-	
-}
-
 void UPlayerMove::UsePotion()
 {
-
+	
 }
 
 void UPlayerMove::Skill()

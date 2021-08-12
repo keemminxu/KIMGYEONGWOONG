@@ -34,7 +34,6 @@ public:
 	void Turn(float value);
 	void LookUp(float value);
 	// ±¸¸£±â
-	void Roll();
 	void UsePotion();
 	void Skill();
 

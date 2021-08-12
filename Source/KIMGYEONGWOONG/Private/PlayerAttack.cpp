@@ -43,7 +43,9 @@ void UPlayerAttack::SetupPlayerInputComponent(class UInputComponent* PlayerInput
 {
 	PlayerInputComponent->BindAction(TEXT("Attack"), IE_Pressed, this, &UPlayerAttack::Attack);
 	PlayerInputComponent->BindAction(TEXT("SpecialAttack"), IE_Pressed, this, &UPlayerAttack::SpecialAttack);
+	PlayerInputComponent->BindAction(TEXT("Attack"), IE_Released, this, &UPlayerAttack::NotAttack);
 	PlayerInputComponent->BindAction(TEXT("Roll"), IE_Pressed, this, &UPlayerAttack::Avoid);
+	PlayerInputComponent->BindAction(TEXT("Roll"), IE_Released, this, &UPlayerAttack::NotAvoid);
 	
 }
 
@@ -54,6 +56,11 @@ void UPlayerAttack::Attack()
 	{
 		me->isAttacking = true;
 	}
+}
+
+void UPlayerAttack::NotAttack()
+{
+	me->isAttacking = false;
 }
 
 void UPlayerAttack::SpecialAttack()
@@ -73,4 +80,10 @@ void UPlayerAttack::Avoid()
 		me->isAvoiding = true;
 	}
 }
+
+void UPlayerAttack::NotAvoid()
+{
+	me->isAvoiding = false;
+}
+
 

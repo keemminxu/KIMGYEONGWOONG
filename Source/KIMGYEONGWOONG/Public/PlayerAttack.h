@@ -32,6 +32,8 @@ public:
 		class AKIMGYEONGWOONGPlayer* me;
 	
 	void Attack();
+	void NotAttack();
 	void SpecialAttack();
 	void Avoid();
+	void NotAvoid();
 };
