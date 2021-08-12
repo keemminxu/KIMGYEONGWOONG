@@ -79,11 +79,11 @@ public:
 	void UsePotion();
 
 	// HP, MP, Toxicity
-	UPROPERTY(EditAnywhere, Category = Stats)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Stats)
 		float HP = 100.0f;
-	UPROPERTY(EditAnywhere, Category = Stats)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Stats)
 		float MP = 100.0f;
-	UPROPERTY(EditAnywhere, Category = Stats)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Stats)
 		float Stamina = 50.0f;
 
 	// 상태머신
